@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{coffee}
+\begin{document}
+\title{LaTeX Coffee Stains}
+\author{Hanno Rein\\
+\texttt{http://hanno-rein.de}\\
+Cambridge University}
+\renewcommand{\today}{April 3, 2009}
+\maketitle
+\coffee[0.4pt]{1}
+\section{Introduction}
+This package provides an essential feature to \LaTeX~that has been missing for too long. It adds a coffee stain to your documents. A lot of time can be saved by printing stains directly on the page rather than adding it manually. You can choose from four different stain types:
+\begin{enumerate}
+  \item $270^\circ$ circle stain with two tiny splashes 
+  \item $60^\circ$ circle stain 
+  \item two splashes with light colours
+  \item and a colourful twin splash.
+\end{enumerate}
+
+\section{Usage}
+To use the package, simply place the \texttt{coffee.sty} file in the directory with all of your other \texttt{.tex} files \textit{or} install it properly (consult your distribution's manual). Then include the following line in the header of your document:
+\begin{verbatim}
+\usepackage{coffee}
+\end{verbatim}
+To place a coffee stain on a page, put one of the following commands in the source code of the relevant page: 
+\begin{verbatim}
+\coffee{1} % stain 1 (see this page)
+\coffee{2} % stain 2 (see next page)
+\coffee{3} % stain 3 (see page 3)
+\coffee{4} % stain 4
+\end{verbatim}
+The package requires \texttt{eso-pic}, \texttt{ifthen} and \texttt{pstricks}. Currently it does not work with \texttt{pdflatex}. Sorry about that. If you know how to change this, let me know.  
+\newpage
+\noindent You can adjust the size of the stains as follows:
+\begin{verbatim}
+\coffee[0.3pt]{1}  %small stain
+\coffee[0.7pt]{1}  %large stain
+\end{verbatim}
+If you want to change the position of the stains on the page you have to do some hacking. Have a look at the end of the \texttt{coffee.sty} file. It shouldn't be very hard. 
+
+\section{Copyright}
+You can freely distribute this package as I do not believe in imaginary property. All stains are self-made, photographed by myself, processed with gimp and traced with Inkscape.
+Donations should be made in coffee only. My address is
+\begin{quote}
+Hanno Rein\\
+DAMTP, CMS\\
+Wilberforce Road\\
+Cambridge CB3 0WA\\
+United Kingdom
+\end{quote}
+See more coffee stains on the next pages.
+\coffee{2}
+\newpage
+\coffee{3}
+Coffee is great.
+\newpage
+\coffee[0.1pt]{4}
+Coffee will save the world. 
+\end{document}
