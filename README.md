@@ -46,7 +46,7 @@ http://nepsweb.co.uk/homeapr/
 
 December, 2014
 
-Added random \cofeSplash{} (requires ifthen) 
+Added random \cofeSplash{} (requires ifthen) and onEveryPage package option
 
 moved to github
 
