@@ -52,6 +52,8 @@ added to github
 
 by Sebastian Schmittner
 
+http://www.thp.uni-koeln.de/~ses/
+
 
 ### License
 
