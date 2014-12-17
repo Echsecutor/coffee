@@ -1,14 +1,8 @@
 \documentclass{article}
-\usepackage{tikz}
+\usepackage[onEveryPage]{coffee}
+
+
 \usepackage{verbatim}
-\usetikzlibrary{arrows,shapes}
-
-\usepackage{coffee5}
-
-\usepackage{eso-pic}
-\AddToShipoutPicture{%
-\cofeSplash{}
-}
 \usepackage{lipsum}
 
 
@@ -31,11 +25,11 @@ This package provides an essential feature to \LaTeX~that has been missing for t
 \end{enumerate}
 
 \section{Usage}
-To use the package, simply place the \texttt{coffee5.sty} file in the directory with all of your 
+To use the package, simply place the \texttt{coffee.sty} file in the directory with all of your 
 other \texttt{.tex} files \textit{or} install it properly (consult your distribution's manual). 
 Then include the following line in the header of your document:
 \begin{verbatim}
-\usepackage{coffee5}
+\usepackage{coffee}
 \end{verbatim}
 To place a coffee stain on a page, put one of the following commands in the source code of the relevant page: 
 \begin{verbatim}
@@ -54,15 +48,11 @@ Since version 5, you may also use
 \begin{verbatim}
 \cofeSplash{}
 \end{verbatim}
-to place a random splash with random parameters on the current page or
-e.g.
+to place a random splash with random parameters on the current
+page. There is now also a package option to put coffee on every page like
 \begin{verbatim}
-\usepackage{eso-pic}
-\AddToShipoutPicture{%
-\cofeSplash{}
-}
+\usepackage[onEveryPage]{coffee}
 \end{verbatim}
-to put a random splash on every page.
 
 
 \section{Copyright}
@@ -77,7 +67,7 @@ United Kingdom
 \end{quote}
 See more coffee stains on the next pages.
 \newpage
-
+\section{Nonsense text with coffee splashes - just as in real papers}
 \lipsum[1-42]
 
 \end{document}

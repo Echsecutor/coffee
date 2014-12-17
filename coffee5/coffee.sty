@@ -20,20 +20,29 @@
 % http://nepsweb.co.uk/homeapr/
 %
 % December, 2014
-% Added random \cofeSplash{} (requires ifthen)
+% Added: -random \cofeSplash{} (requires ifthen)
+% -package option to put random splashes onEveryPage
 % by Sebastian Schmittner
 % http://www.thp.uni-koeln.de/~ses/ ses@thp.uni-koeln.de
 %
 
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{coffee}[2014/12/17 Coffe Staints Version 5]
+
 \RequirePackage{kvoptions}
-
-\SetupKeyvalOptions{family=coffee,prefix=coffee@}
-
-\ProcessKeyvalOptions*\relax
 
 \RequirePackage{tikz}
 
 \RequirePackage{ifthen}
+
+
+\SetupKeyvalOptions{family=coffee,prefix=coffee@}
+
+\DeclareBoolOption{onEveryPage}
+
+\ProcessKeyvalOptions*\relax
+
 
 \definecolor{coffee1}{rgb}{0.80784315,0.68627453,0.60392159}
 \definecolor{coffee2}{rgb}{0.77254903,0.58039218,0.43921569}
@@ -501,26 +510,36 @@
 %generate random cofe splash:
 \newcommand{\cofeSplash}{
 \pgfmathsetmacro{\alpha}{0.5*rnd+0.2}
-\pgfmathsetmacro{\scale}{1.0 + 0.5*rand}
+\pgfmathsetmacro{\scale}{0.7 + 0.5*rand}
 \pgfmathsetmacro{\angle}{360*rnd}
 \pgfmathsetlengthmacro{\xoff}{rand*2cm}
 \pgfmathsetlengthmacro{\yoff}{rand*5cm}
 
 \pgfmathtruncatemacro{\variety}{4*rnd}
 
-\ifthenelse{\variety=0}{
-  \cofeAm{\alpha}{\scale}{\angle}{\xoff}{\yoff}
-}{
-  \ifthenelse{\variety=1}{
-    \cofeBm{\alpha}{\scale}{\angle}{\xoff}{\yoff}
+\ifthenelse{\variety<2}{
+  \ifthenelse{\variety=0}{
+    \cofeAm{\alpha}{\scale}{\angle}{\xoff}{\yoff}
   }{
-    \ifthenelse{\variety=2}{
-      \cofeCm{\alpha}{\scale}{\angle}{\xoff}{\yoff}
-    }{
-      \cofeDm{\alpha}{\scale}{\angle}{\xoff}{\yoff}
-    }
+    \cofeBm{\alpha}{\scale}{\angle}{\xoff}{\yoff}
+  }
+}{
+  \ifthenelse{\variety=2}{
+    \cofeCm{\alpha}{\scale}{\angle}{\xoff}{\yoff}
+  }{
+    \cofeDm{\alpha}{\scale}{\angle}{\xoff}{\yoff}
   }
 }
 
-}
+}%end splash command
 
+
+
+\ifthenelse{\boolean{coffee@onEveryPage}}{
+%put splashes on every page:
+\RequirePackage{eso-pic}
+\AddToShipoutPicture{\cofeSplash{}}
+}{}
+
+
+\endinput
