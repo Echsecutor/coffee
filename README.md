@@ -48,7 +48,7 @@ December, 2014
 
 Added random \cofeSplash{} (requires ifthen) and onEveryPage package option
 
-moved to github
+added to github
 
 by Sebastian Schmittner
 
