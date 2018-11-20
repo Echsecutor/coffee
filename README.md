@@ -27,9 +27,9 @@ Since version 6, there is a convenient command:
 ```
 \cofeBleed{alpha}{scale}{angle}{xoff}{yoff}{bleed}{variety}
 ```
-to place a `variety` $\in [0,4]$ type splash with random parameters on the
-current page. There is now also a package option to put a bleeding coffee
-throughout the pages like
+to place a `variety` type splash with random parameters on the
+current page. There is now also a package option to put a bleeding
+coffee throughout the pages like
 ```
 \usepackage[bleed]{coffee}
 ```
