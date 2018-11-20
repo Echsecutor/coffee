@@ -45,6 +45,7 @@
 \SetupKeyvalOptions{family=coffee,prefix=coffee@}
 
 \DeclareBoolOption{onEveryPage}
+\DeclareBoolOption{bleed}
 
 \ProcessKeyvalOptions*\relax
 
@@ -544,6 +545,14 @@
 %put splashes on every page:
 \RequirePackage{eso-pic}
 \AddToShipoutPicture{\cofeSplash{}}
+}{}
+
+
+
+\ifthenelse{\boolean{coffee@bleed}}{
+%bleed random splash across multiple pages:
+\RequirePackage{eso-pic}
+\AddToShipoutPicture{\cofeAm{1}{1.0}{0}{5.5cm}{3cm}}
 }{}
 
 
